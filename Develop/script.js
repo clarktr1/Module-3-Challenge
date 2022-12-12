@@ -1,17 +1,7 @@
-// Assignment Code
-var generateBtn = document.querySelector("#generate");
-
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
+window.onload = function () {
+  var slider = document.getElementById("length-slider");
+  slider.addEventListener("input", function () {
+      document.body.style.setProperty("--thumbNumber", "'" + this.value + "'");
+  });
+  // whenever this element receives input, change the value of --thumbNumber to this element's value
 }
-
-generatePassword = function(){
-  
-}
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
