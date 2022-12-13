@@ -6,32 +6,12 @@ specialEl = document.getElementById("special");
 generateEl = document.getElementById("generate");
 passwordEl = document.getElementById("password");
 
+//Criteria Arrays
 
-generateEl.addEventListener("click", () => {
-  var length = lengthEl.value;
-
-  console.log(length)
-});
-
-
-//Generator Functions
-
-getUpper = function(){
-
-}
-
-getLower = function(){
-
-}
-
-getNumber = function(){
-
-}
-
-
-getSpecial = function() {
-  if (specialEl === true) {
-      return ("!@#$%^&*()_+-=");
-}   else {
-      return (" ");
-}};
+var charCodes = Array.from(Array(26)).map( (_, i) => i + 97);
+var lowerCase = charCodes.map(code => String.fromCharCode(code));
+var upperCase = lowerCase.map(lowerCase => lowerCase.toUpperCase());
+console.log(lowerCase);
+console.log(upperCase);
+var numbers = [1,2,3,4,5,6,7,8,9,0];
+var specialChar = ["!@#$%^&*().?"];
