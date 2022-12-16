@@ -19,8 +19,8 @@ var generatePassword= function() {
   var randomChar = [];
 
   var lengthPrompt = window.prompt("How many characters would you like your password to be? Between 8-128");
-    if(i = 0, i >= 8 && i <= 128) {
-      return(i);
+    if(lengthPrompt >= 8 && i <= 128) {
+      return(lengthPrompt);
   } else {
       window.prompt("That is not in the range! Try again");
       lengthPrompt;
@@ -29,7 +29,7 @@ var generatePassword= function() {
   var legnthConfirm = parseInt(lengthPrompt);
     console.log(lengthPrompt);
 
-  var numbersPrompt = window.confirm("would you like your password to have numbers?");
+  var numbersPrompt = window.confirm("Would you like your password to have numbers?");
     if(numbersPrompt === true){
       randomChar = randomChar.concat(numbers);
   }
@@ -55,7 +55,7 @@ var generatePassword= function() {
 
   console.log(randomIndex);
 
-  for (let i = 0; i >= lengthPrompt; i++) {
+  for ( i = 0; i >= lengthPrompt; i++) {
     return(randomChar[randomIndex]);
   }
 
