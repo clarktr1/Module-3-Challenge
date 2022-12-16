@@ -10,11 +10,11 @@ passwordEl = document.getElementById("password");
 
 //Criteria Arrays
 
-var charCodes = Array.from(Array(26)).map( (_, i) => i + 97);
-var lowerCase = charCodes.map(code => String.fromCharCode(code));
-var upperCase = lowerCase.map(lowerCase => lowerCase.toUpperCase());
-var numbers = [1,2,3,4,5,6,7,8,9,0];
-var specialChar = ["!@#$%^&*().?"];
+// var charCodes = Array.from(Array(26)).map( (_, i) => i + 97);
+// var lowerCase = charCodes.map(code => String.fromCharCode(code));
+// var upperCase = lowerCase.map(lowerCase => lowerCase.toUpperCase());
+// var numbers = [1,2,3,4,5,6,7,8,9,0];
+// var specialChar = ["!@#$%^&*().?"];
 
 // Criteria Checks
 
@@ -26,23 +26,44 @@ var hasSpecial = specialEl.checked;
 
 // Generate Password 
 
-var getPassword = (length, hasLower, hasUpper, hasNumbers, hasSpecial) => {
-    var randomPassword = [
-      //Keys
-      (hasLower ? lowerCase : ""),
-      (hasUpper ? upperCase : ""),
-      (hasNumbers ? numbers : ""),
-      (hasSpecial ? specialChar : ""),
-      ];
+var generatePassword= function() {
+  var charCodes = Array.from(Array(26)).map( (_, i) => i + 97);
+  var lowerCase = charCodes.map(code => String.fromCharCode(code));
+  var upperCase = lowerCase.map(lowerCase => lowerCase.toUpperCase());
+  var numbers = [1,2,3,4,5,6,7,8,9,0];
+  var specialChar = ["!","@","#","$","%","^","&","*","(",")",".","?",","];
+  var randomChar = [];
 
-      let password = "";
-      if (randomPassword.length === 0) return "";
+  var lengthPrompt = window.prompt("How many characters would you like your password to be? Between 8-128");
+    if(i = 0, i >= 8 && i <= 128) {
+    return(i);
+  }
 
-      for (let i = 0; i < length; i++){
-        var randomIndex = math.floor(math.random() * randomPassword.length);
-        password += randomPassword[randomIndex];
-      }
-      return password;
-}
+  var legnthConfirm = parseInt(lengthPrompt);
+    console.log(lengthPrompt);
 
-generateEl.addEventListener('click', getPassword);
+  var numbersPrompt = window.confirm("would you like your password to have numbers?");
+    if(numbersPrompt === true){
+      randomChar = randomChar.concat(numbers);
+  }
+
+  var upperPrompt = window.confirm("Would you like your password to have Upper Case letters?");
+    if(upperPrompt === true){
+      randomChar = randomChar.concat(upperCase)
+    }
+
+  var lowerPrompt = window.confirm("Would you like your password to have Lower Case letters?");
+    if(lowerPrompt === true){
+      randomChar = randomChar.concat(lowerCase);
+    }
+
+  var specialPrompt = window.confirm("Would you like your password to have Special Characters?");
+    if(specialPrompt === true){
+      randomChar = randomChar.concat(specialChar);
+    }
+
+    console.log(randomChar);
+};
+
+
+generateEl.addEventListener('click', generatePassword);
