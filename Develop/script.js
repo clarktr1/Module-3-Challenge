@@ -10,6 +10,8 @@ passwordEl = document.getElementById("password");
 
 // Generate Password 
 
+
+
 var generatePassword= function() {
   var charCodes = Array.from(Array(26)).map( (_, i) => i + 97);
   var lowerCase = charCodes.map(code => String.fromCharCode(code));
@@ -17,14 +19,9 @@ var generatePassword= function() {
   var numbers = [1,2,3,4,5,6,7,8,9,0];
   var specialChar = ["!","@","#","$","%","^","&","*","(",")",".","?",","];
   var randomChar = [];
+  var finalPassword = '';
 
   var lengthPrompt = window.prompt("How many characters would you like your password to be? Between 8-128");
-    if(lengthPrompt >= 8 && i <= 128) {
-      return(lengthPrompt);
-  } else {
-      window.prompt("That is not in the range! Try again");
-      lengthPrompt;
-  }
   
   var legnthConfirm = parseInt(lengthPrompt);
     console.log(lengthPrompt);
@@ -51,17 +48,12 @@ var generatePassword= function() {
 
     console.log(randomChar);
 
-  var randomIndex = (Math.floor(Math.random() * randomChar.length));
+    for (let i = 0; i < lengthPrompt; i++) {
+      var randomIndex = Math.floor(Math.random() * randomChar.length);
+      finalPassword += randomChar[randomIndex];
+    }
 
-  console.log(randomIndex);
-
-  for ( i = 0; i >= lengthPrompt; i++) {
-    return(randomChar[randomIndex]);
-  }
-
-  console.log(randomChar[randomIndex]);
-
-  passwordEl.innerHTML = randomChar[randomIndex];
+    passwordEl.innerHTML = finalPassword;
 };
 
 
